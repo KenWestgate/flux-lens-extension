@@ -1,7 +1,7 @@
 {
 	"name": "flux-lens-extension",
-	"version": "0.0.1",
-	"description": "Add flux reconcile commands to lens",
+	"version": "0.0.2",
+	"description": "Add flux commands to lens",
 	"publisher": "@KenWestgate/ken-westgate",
 	"engines": {
 		"lens": "^5.0.0"

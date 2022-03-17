@@ -48,11 +48,27 @@ export function HelmRepositoryMenu(props: HelmRepositoryMenuProps) {
     sendToTerminal(`${fluxPath} reconcile source helm ${nodeName} --namespace ${nodeNamespace}`);
   };
 
+  const suspend = () => {
+    sendToTerminal(`${fluxPath} suspend helmrelease ${nodeName} --namespace ${nodeNamespace}`);
+  };
+
+  const resume = () => {
+    sendToTerminal(`${fluxPath} resume helmrelease ${nodeName} --namespace ${nodeNamespace}`);
+  };
+
   return (
     <>
       <MenuItem onClick={reconcile}>
         <Icon svg="ssh" interactive={toolbar} tooltip={toolbar && "Reconcile"}/>
         <span className="title">Reconcile</span>
+      </MenuItem>
+      <MenuItem onClick={suspend}>
+        <Icon svg="ssh" interactive={toolbar} tooltip={toolbar && "Suspend"}/>
+        <span className="title">Suspend</span>
+      </MenuItem>
+      <MenuItem onClick={resume}>
+        <Icon svg="ssh" interactive={toolbar} tooltip={toolbar && "Resume"}/>
+        <span className="title">Resume</span>
       </MenuItem>
     </>
   );
