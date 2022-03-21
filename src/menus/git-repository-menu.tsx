@@ -1,12 +1,12 @@
 /**
- * Copyright (c) OpenLens Authors. All rights reserved.
+ * Copyright (c) KenWestgate. All rights reserved.
  * Licensed under MIT License. See LICENSE in root directory for more information.
  */
 
 import React from "react";
 import { Common, Renderer } from "@k8slens/extensions";
 
-type HelmRelease = Renderer.K8sApi.Node;
+type GitRepository = Renderer.K8sApi.Node;
 
 const {
   Component: {
@@ -21,10 +21,10 @@ const {
 } = Common;
 
 
-export interface HelmReleaseMenuProps extends Renderer.Component.KubeObjectMenuProps<HelmRelease> {
+export interface GitRepositoryMenuProps extends Renderer.Component.KubeObjectMenuProps<GitRepository> {
 }
 
-export function HelmReleaseMenu(props: HelmReleaseMenuProps) {
+export function GitRepositoryMenu(props: GitRepositoryMenuProps) {
   const { object: node, toolbar } = props;
 
   if (!node) {
@@ -45,7 +45,7 @@ export function HelmReleaseMenu(props: HelmReleaseMenuProps) {
   };
 
   const reconcile = () => {
-    sendToTerminal(`${fluxPath} reconcile helmrelease ${nodeName} --namespace ${nodeNamespace}`);
+    sendToTerminal(`${fluxPath} reconcile source git ${nodeName} --namespace ${nodeNamespace}`);
   };
 
   const suspend = () => {

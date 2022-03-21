@@ -1,14 +1,14 @@
 /**
- * Copyright (c) OpenLens Authors. All rights reserved.
+ * Copyright (c) KenWestgate. All rights reserved.
  * Licensed under MIT License. See LICENSE in root directory for more information.
  */
 
 import { Renderer } from "@k8slens/extensions";
 import React from "react";
-import { GitRepositoryMenu, GitRepositoryMenuProps } from "./src/reconciliations/git-repository-menu";
-import { KustomizationMenu, KustomizationMenuProps } from "./src/reconciliations/kustomization-menu";
-import { HelmRepositoryMenu, HelmRepositoryMenuProps } from "./src/reconciliations/helm-repository-menu";
-import { HelmReleaseMenu, HelmReleaseMenuProps } from "./src/reconciliations/helm-release-menu";
+import { GitRepositoryMenu, GitRepositoryMenuProps } from "./src/menus/git-repository-menu";
+import { KustomizationMenu, KustomizationMenuProps } from "./src/menus/kustomization-menu";
+import { HelmRepositoryMenu, HelmRepositoryMenuProps } from "./src/menus/helm-repository-menu";
+import { HelmReleaseMenu, HelmReleaseMenuProps } from "./src/menus/helm-release-menu";
 
 export default class GitRepositoryMenuRendererExtension extends Renderer.LensExtension {
   kubeObjectMenuItems = [

@@ -17,7 +17,7 @@ A working installation of flux: https://fluxcd.io
 
 ## Release Notes
 
-### v0.0.2
+### v0.0.1
 
 Initial release limited to flux reconcile additions
 
