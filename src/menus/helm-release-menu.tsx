@@ -58,24 +58,24 @@ export function HelmReleaseMenu(props: HelmReleaseMenuProps) {
   return (
     <>
       <MenuItem onClick={reconcile}>
-        <Icon svg="ssh" interactive={toolbar} tooltip={toolbar && "Reconcile"}/>
+        <Icon material="refresh" interactive={toolbar} tooltip={toolbar && "Reconcile"}/>
         <span className="title">Reconcile</span>
       </MenuItem>
-      {
+      {/* {
         helmRelease.isSuspended()
-        ? (
+        ? ( */}
           <MenuItem onClick={resume}>
-            <Icon svg="ssh" interactive={toolbar} tooltip={toolbar && "Resume"}/>
+            <Icon material="play_circle_filled" interactive={toolbar} tooltip={toolbar && "Resume"}/>
             <span className="title">Resume</span>
           </MenuItem>
-        )
-        : (
+        {/* )
+        : ( */}
           <MenuItem onClick={suspend}>
-            <Icon svg="ssh" interactive={toolbar} tooltip={toolbar && "Suspend"}/>
+            <Icon material="pause_circle_filled" interactive={toolbar} tooltip={toolbar && "Suspend"}/>
             <span className="title">Suspend</span>
           </MenuItem>
-        )
-      }
+        {/* )
+      } */}
     </>
   );
 }
