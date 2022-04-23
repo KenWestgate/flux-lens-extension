@@ -5,41 +5,38 @@
 
 import { Renderer } from "@k8slens/extensions";
 import React from "react";
-import { GitRepositoryMenu, GitRepositoryMenuProps } from "./src/menus/git-repository-menu";
-import { KustomizationMenu, KustomizationMenuProps } from "./src/menus/kustomization-menu";
-import { HelmRepositoryMenu, HelmRepositoryMenuProps } from "./src/menus/helm-repository-menu";
-import { HelmReleaseMenu, HelmReleaseMenuProps } from "./src/menus/helm-release-menu";
+import { HelmReleaseDetails, HelmReleaseDetailsProps } from "./src/components/helm-release-details";
+import { HelmReleasePage } from "./src/components/helm-release-page";
+import { HelmRelease} from "./src/helm-release"
 
-export default class GitRepositoryMenuRendererExtension extends Renderer.LensExtension {
-  kubeObjectMenuItems = [
-    {
-      kind: "GitRepository",
-      apiVersions: ["source.toolkit.fluxcd.io/v1beta1"],
-      components: {
-        MenuItem: (props: GitRepositoryMenuProps) => <GitRepositoryMenu {...props} />,
-      },
-    },
-    {
-      kind: "Kustomization",
-      apiVersions: ["kustomize.toolkit.fluxcd.io/v1beta2"],
-      components: {
-        MenuItem: (props: KustomizationMenuProps) => <KustomizationMenu {...props} />,
-      },
-    },
-    {
-      kind: "HelmRepository",
-      apiVersions: ["source.toolkit.fluxcd.io/v1beta1"],
-      components: {
-        MenuItem: (props: HelmRepositoryMenuProps) => <HelmRepositoryMenu {...props} />,
-      },
-    },
-    {
-      kind: "HelmRelease",
-      apiVersions: ["helm.toolkit.fluxcd.io/v2beta1"],
-      components: {
-        MenuItem: (props: HelmReleaseMenuProps) => <HelmReleaseMenu {...props} />,
-      },
-    },
-  ];
+export function HelmReleaseIcon(props: Renderer.Component.IconProps) {
+  return <Renderer.Component.Icon {...props} material="security" tooltip="HelmReleases"/>
 }
 
+export default class HelmReleaseExtension extends Renderer.LensExtension {
+  clusterPages = [{
+    id: "helm-releases",
+    components: {
+      Page: () => <HelmReleasePage extension={this} />,
+      MenuIcon: HelmReleaseIcon,
+    }
+  }]
+
+  clusterPageMenus = [
+    {
+      target: { pageId: "helm-releases" },
+      title: "Flux Helm Releases",
+      components: {
+        Icon: HelmReleaseIcon,
+      }
+    },
+  ];
+
+  kubeObjectDetailItems = [{
+    kind: HelmRelease.kind,
+    apiVersions: ["helm.toolkit.fluxcd.io/v2beta1"],
+    components: {
+      Details: (props: HelmReleaseDetailsProps) => <HelmReleaseDetails {...props} />
+    }
+  }]
+}

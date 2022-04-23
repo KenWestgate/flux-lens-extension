@@ -4,7 +4,7 @@ const path = require("path");
 
 module.exports = [
   {
-    entry: "./main.ts",
+    entry: "./renderer.tsx",
     context: __dirname,
     target: "electron-main",
     // mode: process.env.NODE_ENV ?? "production",
@@ -32,7 +32,7 @@ module.exports = [
     },
     output: {
       libraryTarget: "commonjs2",
-      filename: "main.js",
+      filename: "renderer.js",
       path: path.resolve(__dirname, "dist"),
     },
   },
