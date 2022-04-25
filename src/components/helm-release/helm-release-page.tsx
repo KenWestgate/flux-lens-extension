@@ -5,13 +5,14 @@
 
 import { Renderer } from "@k8slens/extensions";
 import React from "react";
-import { helmReleasesStore } from "../../helm-release-store";
-import { HelmRelease } from "../../helm-release";
+import { helmReleasesStore } from "../../api/helm-release/helm-release-store";
+import { HelmRelease } from "../../api/helm-release/helm-release";
 
 enum sortBy {
   name = "name",
   namespace = "namespace",
-  chart = "chart"
+  chart = "chart",
+  suspend = "suspend"
 }
 
 export class HelmReleasePage extends React.Component<{ extension: Renderer.LensExtension }> {
@@ -24,7 +25,8 @@ export class HelmReleasePage extends React.Component<{ extension: Renderer.LensE
           sortingCallbacks={{
             [sortBy.name]: (helmRelease: HelmRelease) => helmRelease.getName(),
             [sortBy.namespace]: (helmRelease: HelmRelease) => helmRelease.metadata.namespace,
-            [sortBy.chart]: (helmRelease: HelmRelease) => helmRelease.spec.chart.spec.sourceRef.name
+            [sortBy.chart]: (helmRelease: HelmRelease) => helmRelease.spec.chart.spec.sourceRef.name,
+            [sortBy.suspend]: (helmRelease: HelmRelease) => helmRelease.isSuspendedText()
           }}
           searchFilters={[
             (helmRelease: HelmRelease) => helmRelease.getSearchFields()
@@ -34,11 +36,13 @@ export class HelmReleasePage extends React.Component<{ extension: Renderer.LensE
             { title: "Name", className: "name", sortBy: sortBy.name },
             { title: "Namespace", className: "namespace", sortBy: sortBy.namespace },
             { title: "Chart", className: "chart", sortBy: sortBy.chart },
+            { title: "Suspended", className: "suspended" }
           ]}
           renderTableContents={(helmRelease: HelmRelease) => [
             helmRelease.getName(),
             helmRelease.metadata.namespace,
-            helmRelease.spec.chart.spec.sourceRef.name
+            helmRelease.spec.chart.spec.sourceRef.name,
+            helmRelease.isSuspendedText()
           ]}
         />
       </Renderer.Component.TabLayout>

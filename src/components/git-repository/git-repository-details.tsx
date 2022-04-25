@@ -1,6 +1,6 @@
 import { Renderer } from "@k8slens/extensions";
 import React from "react";
-import { HelmRelease } from "../../api/helm-release/helm-release";
+import { GitRepository } from "../../api/git-repository/git-repository";
 
 const {
     Component: {
@@ -8,24 +8,24 @@ const {
         DrawerItem
     },
 } = Renderer;
-export interface HelmReleaseDetailsProps extends Renderer.Component.KubeObjectDetailsProps<HelmRelease> {
+export interface GitRepositoryDetailsProps extends Renderer.Component.KubeObjectDetailsProps<GitRepository> {
 }
 
-export class HelmReleaseDetails extends React.Component<HelmReleaseDetailsProps> {
+export class GitRepositoryDetails extends React.Component<GitRepositoryDetailsProps> {
 
     render() {
-        const { object: helmRelease } = this.props;
-        if (!helmRelease) return null;
+        const { object: gitRepository } = this.props;
+        if (!gitRepository) return null;
         return (
-            <div className="HelmRelease">
+            <div className="GitRepository">
                 <DrawerItem name="Suspend">
-                    {helmRelease.isSuspended() ? "true" : "false"}
+                    {gitRepository.isSuspended() ? "true" : "false"}
                 </DrawerItem>
                 <DrawerItem name="Created">
-                    {helmRelease.getAge(true, false)} ago ({helmRelease.metadata.creationTimestamp})
+                    {gitRepository.getAge(true, false)} ago ({gitRepository.metadata.creationTimestamp})
                 </DrawerItem>
                 <DrawerItem name="Status" className="status" labelsOnly>
-                    {helmRelease.status.conditions.map((condition, index) => {
+                    {gitRepository.status.conditions.map((condition, index) => {
                         const { type, reason, message, status } = condition;
                         const kind = type || reason;
                         if (!kind) return null;

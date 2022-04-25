@@ -1,0 +1,275 @@
+{
+    "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+    "items": [
+        {
+            "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+            "kind": "GitRepository",
+            "metadata": {
+                "annotations": {
+                    "reconcile.fluxcd.io/requestedAt": "2022-04-16T21:15:14.5748354+01:00"
+                },
+                "creationTimestamp": "2022-04-16T20:11:28Z",
+                "finalizers": [
+                    "finalizers.fluxcd.io"
+                ],
+                "generation": 3,
+                "labels": {
+                    "kustomize.toolkit.fluxcd.io/name": "common",
+                    "kustomize.toolkit.fluxcd.io/namespace": "flux-system"
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:labels": {
+                                    "f:kustomize.toolkit.fluxcd.io/name": {},
+                                    "f:kustomize.toolkit.fluxcd.io/namespace": {}
+                                }
+                            },
+                            "f:spec": {
+                                "f:interval": {},
+                                "f:ref": {
+                                    "f:branch": {}
+                                },
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "kustomize-controller",
+                        "operation": "Apply",
+                        "time": "2022-04-16T20:12:29Z"
+                    },
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:reconcile.fluxcd.io/requestedAt": {}
+                                }
+                            }
+                        },
+                        "manager": "flux.exe",
+                        "operation": "Update",
+                        "time": "2022-04-16T20:15:15Z"
+                    },
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:finalizers": {
+                                    ".": {},
+                                    "v:\"finalizers.fluxcd.io\"": {}
+                                }
+                            },
+                            "f:status": {
+                                "f:artifact": {
+                                    ".": {},
+                                    "f:checksum": {},
+                                    "f:lastUpdateTime": {},
+                                    "f:path": {},
+                                    "f:revision": {},
+                                    "f:url": {}
+                                },
+                                "f:conditions": {},
+                                "f:lastHandledReconcileAt": {},
+                                "f:observedGeneration": {},
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "source-controller",
+                        "operation": "Update",
+                        "time": "2022-04-16T20:15:15Z"
+                    }
+                ],
+                "name": "external-secrets",
+                "namespace": "flux-system",
+                "resourceVersion": "67265956",
+                "uid": "e4b21b90-d0ba-4874-88de-d5014b5644d7"
+            },
+            "spec": {
+                "gitImplementation": "go-git",
+                "interval": "5m",
+                "ref": {
+                    "branch": "main"
+                },
+                "timeout": "20s",
+                "url": "http://github.com/external-secrets/external-secrets"
+            },
+            "status": {
+                "artifact": {
+                    "checksum": "fb3b158d9f522b3b2ae09e1d41d4c2b65ccbc27b957f98ee47d941aa610929cf",
+                    "lastUpdateTime": "2022-04-25T11:08:05Z",
+                    "path": "gitrepository/flux-system/external-secrets/64057e9736709db07dfa85ed426b525c9b590447.tar.gz",
+                    "revision": "main/64057e9736709db07dfa85ed426b525c9b590447",
+                    "url": "http://source-controller.flux-system.svc.cluster.local./gitrepository/flux-system/external-secrets/64057e9736709db07dfa85ed426b525c9b590447.tar.gz"
+                },
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2022-04-17T12:40:01Z",
+                        "message": "Fetched revision: main/64057e9736709db07dfa85ed426b525c9b590447",
+                        "reason": "GitOperationSucceed",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "lastHandledReconcileAt": "2022-04-16T21:15:14.5748354+01:00",
+                "observedGeneration": 3,
+                "url": "http://source-controller.flux-system.svc.cluster.local./gitrepository/flux-system/external-secrets/latest.tar.gz"
+            }
+        },
+        {
+            "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+            "kind": "GitRepository",
+            "metadata": {
+                "annotations": {
+                    "reconcile.fluxcd.io/requestedAt": "2022-04-22T12:37:32.6202094+01:00"
+                },
+                "creationTimestamp": "2022-03-18T10:51:29Z",
+                "finalizers": [
+                    "finalizers.fluxcd.io"
+                ],
+                "generation": 1,
+                "labels": {
+                    "kustomize.toolkit.fluxcd.io/name": "flux-system",
+                    "kustomize.toolkit.fluxcd.io/namespace": "flux-system"
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:spec": {
+                                "f:interval": {},
+                                "f:ref": {
+                                    "f:branch": {}
+                                },
+                                "f:secretRef": {
+                                    "f:name": {}
+                                },
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "flux",
+                        "operation": "Apply",
+                        "time": "2022-03-18T10:51:29Z"
+                    },
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:labels": {
+                                    "f:kustomize.toolkit.fluxcd.io/name": {},
+                                    "f:kustomize.toolkit.fluxcd.io/namespace": {}
+                                }
+                            },
+                            "f:spec": {
+                                "f:interval": {},
+                                "f:ref": {
+                                    "f:branch": {}
+                                },
+                                "f:secretRef": {
+                                    "f:name": {}
+                                },
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "kustomize-controller",
+                        "operation": "Apply",
+                        "time": "2022-03-18T10:51:34Z"
+                    },
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:reconcile.fluxcd.io/requestedAt": {}
+                                }
+                            }
+                        },
+                        "manager": "flux.exe",
+                        "operation": "Update",
+                        "time": "2022-04-16T20:08:55Z"
+                    },
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:finalizers": {
+                                    ".": {},
+                                    "v:\"finalizers.fluxcd.io\"": {}
+                                }
+                            },
+                            "f:status": {
+                                "f:artifact": {
+                                    ".": {},
+                                    "f:checksum": {},
+                                    "f:lastUpdateTime": {},
+                                    "f:path": {},
+                                    "f:revision": {},
+                                    "f:url": {}
+                                },
+                                "f:conditions": {},
+                                "f:lastHandledReconcileAt": {},
+                                "f:observedGeneration": {},
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "source-controller",
+                        "operation": "Update",
+                        "time": "2022-04-16T20:08:56Z"
+                    }
+                ],
+                "name": "flux-system",
+                "namespace": "flux-system",
+                "resourceVersion": "65968320",
+                "uid": "2e379034-f84b-4d03-8ec6-6cd582d0ebc5"
+            },
+            "spec": {
+                "gitImplementation": "go-git",
+                "interval": "1m0s",
+                "ref": {
+                    "branch": "main"
+                },
+                "secretRef": {
+                    "name": "flux-system"
+                },
+                "timeout": "20s",
+                "url": "ssh://git@github.com/AirboxSystems/flux-infrastructure-production"
+            },
+            "status": {
+                "artifact": {
+                    "checksum": "bea9858d71a7a5320ee3272bd27961a5de9ed7b85d63dbc76937994aba1e21ef",
+                    "lastUpdateTime": "2022-04-22T11:37:32Z",
+                    "path": "gitrepository/flux-system/flux-system/52ebf8b118d5e5d628c60e257bc0a1c2f051e347.tar.gz",
+                    "revision": "main/52ebf8b118d5e5d628c60e257bc0a1c2f051e347",
+                    "url": "http://source-controller.flux-system.svc.cluster.local./gitrepository/flux-system/flux-system/52ebf8b118d5e5d628c60e257bc0a1c2f051e347.tar.gz"
+                },
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2022-03-18T10:51:31Z",
+                        "message": "Fetched revision: main/52ebf8b118d5e5d628c60e257bc0a1c2f051e347",
+                        "reason": "GitOperationSucceed",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "lastHandledReconcileAt": "2022-04-22T12:37:32.6202094+01:00",
+                "observedGeneration": 1,
+                "url": "http://source-controller.flux-system.svc.cluster.local./gitrepository/flux-system/flux-system/latest.tar.gz"
+            }
+        }
+    ],
+    "kind": "GitRepositoryList",
+    "metadata": {
+        "continue": "",
+        "resourceVersion": "67437363"
+    }
+}

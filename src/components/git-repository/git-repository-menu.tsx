@@ -5,7 +5,7 @@
 
 import React from "react";
 import { Common, Renderer } from "@k8slens/extensions";
-import type { HelmRelease } from "../../api/helm-release/helm-release";
+import type { GitRepository } from "../../api/git-repository/git-repository";
 
 const {
   Component: {
@@ -20,18 +20,18 @@ const {
 } = Common;
 
 
-export interface HelmReleaseMenuProps extends Renderer.Component.KubeObjectMenuProps<HelmRelease> {
+export interface GitRepositoryMenuProps extends Renderer.Component.KubeObjectMenuProps<GitRepository> {
 }
 
-export function HelmReleaseMenu(props: HelmReleaseMenuProps) {
-  const { object: helmRelease, toolbar } = props;
+export function GitRepositoryMenu(props: GitRepositoryMenuProps) {
+  const { object: gitRepository, toolbar } = props;
 
-  if (!helmRelease) {
+  if (!gitRepository) {
     return null;
   }
 
-  const helmReleaseName = helmRelease.getName();
-  const helmReleaseNamespace = helmRelease.getNs();
+  const gitRepositoryName = gitRepository.getName();
+  const gitRepositoryNamespace = gitRepository.getNs();
   const fluxPath = /* App.Preferences.getFluxPath() || */ "flux";
 
   const sendToTerminal = (command: string) => {
@@ -43,15 +43,15 @@ export function HelmReleaseMenu(props: HelmReleaseMenuProps) {
   };
 
   const reconcile = () => {
-    sendToTerminal(`${fluxPath} reconcile helmrelease ${helmReleaseName} --namespace ${helmReleaseNamespace}`);
+    sendToTerminal(`${fluxPath} reconcile source git ${gitRepositoryName} --namespace ${gitRepositoryNamespace}`);
   };
 
   const suspend = () => {
-    sendToTerminal(`${fluxPath} suspend helmrelease ${helmReleaseName} --namespace ${helmReleaseNamespace}`);
+    sendToTerminal(`${fluxPath} suspend source git ${gitRepositoryName} --namespace ${gitRepositoryNamespace}`);
   };
 
   const resume = () => {
-    sendToTerminal(`${fluxPath} resume helmrelease ${helmReleaseName} --namespace ${helmReleaseNamespace}`);
+    sendToTerminal(`${fluxPath} resume source git ${gitRepositoryName} --namespace ${gitRepositoryNamespace}`);
   };
 
   return (
@@ -61,7 +61,7 @@ export function HelmReleaseMenu(props: HelmReleaseMenuProps) {
         <span className="title">Reconcile</span>
       </MenuItem>
       {
-        helmRelease.isSuspended()
+        gitRepository.isSuspended()
           ? (
             <MenuItem onClick={resume}>
               <Icon material="play_circle_filled" interactive={toolbar} tooltip={toolbar && "Resume"} />

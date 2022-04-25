@@ -1,9 +1,9 @@
 import { Renderer} from "@k8slens/extensions";
 
-export class HelmRelease extends Renderer.K8sApi.KubeObject {
-  static kind = "HelmRelease"
+export class GitRepository extends Renderer.K8sApi.KubeObject {
+  static kind = "GitRepository"
   static namespaced = true
-  static apiBase = "/apis/helm.toolkit.fluxcd.io/v2beta1/helmreleases";
+  static apiBase = "/apis/source.toolkit.fluxcd.io/v1beta1/gitrepositories";
 
   kind: string
   apiVersion: string
@@ -22,22 +22,23 @@ export class HelmRelease extends Renderer.K8sApi.KubeObject {
     };
   }
   spec: {
-    chart: {
-      spec: {
-        chart: string;
-        reconcileStrategy: string;
-        sourceRef: {
-          kind: string;
-          name: string;
-          namespace?: string;
-        }
-        version: string;
-      }
-    },
+    gitImplementation: string;
     interval: string;
     suspend?: boolean;
+    ref: {
+      branch: string;
+    }
+    timeout: string;
+    url: string;
   }
   status: {
+    artifact: {
+        checksum: string;
+        lastUpdateTime: string;
+        path: string;
+        revision: string;
+        url: string;
+    },
     conditions: {
       lastTransitionTime: string;
       message: string;
@@ -45,18 +46,19 @@ export class HelmRelease extends Renderer.K8sApi.KubeObject {
       status: string;
       type?: string;
     }[];
+    lastHandledReconcileAt: string;
+    observedGeneration: string;
+    url: string;
   }
 
   isSuspended() {
       if ((this.spec.suspend == undefined) || (this.spec.suspend == null)) {
-          console.log("suspend was null or undefined");
           return false;
       }
-      console.log("suspend was not null");
       return this.spec.suspend.valueOf();
   }
 
-  suspendedState(): string {
-    return this.isSuspended() ? "Suspended" : "Active"
+  isSuspendedText(): string {
+    return this.isSuspended() ? "Yes" : "No"
   }
 }
