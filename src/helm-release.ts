@@ -48,10 +48,12 @@ export class HelmRelease extends Renderer.K8sApi.KubeObject {
   }
 
   isSuspended() {
-      if (!!this.spec.suspend) {
+      if ((this.spec.suspend == undefined) || (this.spec.suspend == null)) {
+          console.log("suspend was null or undefined");
           return false;
       }
-      return this.spec.suspend;
+      console.log("suspend was not null");
+      return this.spec.suspend.valueOf();
   }
 
   suspendedState(): string {
