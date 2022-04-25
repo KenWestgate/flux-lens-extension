@@ -22,6 +22,19 @@ export class HelmRelease extends Renderer.K8sApi.KubeObject {
     };
   }
   spec: {
+    chart: {
+      spec: {
+        chart: string;
+        reconcileStrategy: string;
+        sourceRef: {
+          kind: string;
+          name: string;
+          namespace?: string;
+        }
+        version: string;
+      }
+    },
+    interval: string;
     suspend?: boolean;
   }
   status: {
@@ -39,5 +52,9 @@ export class HelmRelease extends Renderer.K8sApi.KubeObject {
           return false;
       }
       return this.spec.suspend;
+  }
+
+  suspendedState(): string {
+    return this.isSuspended() ? "Suspended" : "Active"
   }
 }
