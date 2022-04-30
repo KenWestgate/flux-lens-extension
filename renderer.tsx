@@ -16,20 +16,36 @@ import { GitRepositoryMenu, GitRepositoryMenuProps } from "./src/components/git-
 import { GitRepositoryPage } from "./src/components/git-repository/git-repository-page";
 import { GitRepository } from "./src/api/git-repository/git-repository"
 
+import { KustomizationDetails, KustomizationDetailsProps } from "./src/components/kustomization/kustomization-details";
+import { KustomizationMenu, KustomizationMenuProps } from "./src/components/kustomization/kustomization-menu";
+import { KustomizationPage } from "./src/components/kustomization/kustomization-page";
+import { Kustomization } from "./src/api/kustomization/kustomization"
+
 export function FluxIcon(props: Renderer.Component.IconProps) {
   return <Renderer.Component.Icon {...props} material="security" tooltip="Flux" />
 }
 
-export function HelmReleaseIcon(props: Renderer.Component.IconProps) {
-  return <Renderer.Component.Icon {...props} material="security" tooltip="Helm Releases" />
+export function KustomizationIcon(props: Renderer.Component.IconProps) {
+  return <Renderer.Component.Icon {...props} material="security" tooltip="Kustomizations" />
 }
 
 export function GitRepositoryIcon(props: Renderer.Component.IconProps) {
   return <Renderer.Component.Icon {...props} material="security" tooltip="Git Repositories" />
 }
 
+export function HelmReleaseIcon(props: Renderer.Component.IconProps) {
+  return <Renderer.Component.Icon {...props} material="security" tooltip="Helm Releases" />
+}
+
 export default class FluxExtension extends Renderer.LensExtension {
   clusterPages = [
+    {
+      id: "kustomizations",
+      components: {
+        Page: () => <KustomizationPage extension={this} />,
+        MenuIcon: GitRepositoryIcon,
+      }
+    },
     {
       id: "git-repositories",
       components: {
@@ -54,6 +70,15 @@ export default class FluxExtension extends Renderer.LensExtension {
       },
     },
     {
+      id: "kustomizations-menu",
+      parentId: "flux-main-menu",
+      target: { pageId: "kustomizations" },
+      title: "Kustomizations",
+      components: {
+        Icon: KustomizationIcon,
+      }
+    },
+    {
       id: "git-repositories-menu",
       parentId: "flux-main-menu",
       target: { pageId: "git-repositories" },
@@ -74,6 +99,13 @@ export default class FluxExtension extends Renderer.LensExtension {
   ];
 
   kubeObjectDetailItems = [{
+    kind: Kustomization.kind,
+    apiVersions: ["kustomize.toolkit.fluxcd.io/v1beta2"],
+    components: {
+      Details: (props: KustomizationDetailsProps) => <KustomizationDetails {...props} />
+    }
+  },
+  {
     kind: GitRepository.kind,
     apiVersions: ["source.toolkit.fluxcd.io/v1beta1"],
     components: {
@@ -89,6 +121,13 @@ export default class FluxExtension extends Renderer.LensExtension {
   }];
 
   kubeObjectMenuItems = [
+    {
+      kind: Kustomization.kind,
+      apiVersions: ["kustomize.toolkit.fluxcd.io/v1beta2"],
+      components: {
+        MenuItem: (props: KustomizationMenuProps) => <KustomizationMenu {...props} />,
+      },
+    },
     {
       kind: GitRepository.kind,
       apiVersions: ["source.toolkit.fluxcd.io/v1beta1"],
