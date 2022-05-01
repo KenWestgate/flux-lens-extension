@@ -1,0 +1,690 @@
+{
+    "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+    "items": [
+        {
+            "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+            "kind": "HelmRepository",
+            "metadata": {
+                "creationTimestamp": "2022-02-18T14:49:22Z",
+                "finalizers": [
+                    "finalizers.fluxcd.io"
+                ],
+                "generation": 1,
+                "labels": {
+                    "kustomize.toolkit.fluxcd.io/name": "flux-system",
+                    "kustomize.toolkit.fluxcd.io/namespace": "flux-system"
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:labels": {
+                                    "f:kustomize.toolkit.fluxcd.io/name": {},
+                                    "f:kustomize.toolkit.fluxcd.io/namespace": {}
+                                }
+                            },
+                            "f:spec": {
+                                "f:interval": {},
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "kustomize-controller",
+                        "operation": "Apply",
+                        "time": "2022-03-11T12:39:08Z"
+                    },
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:finalizers": {
+                                    ".": {},
+                                    "v:\"finalizers.fluxcd.io\"": {}
+                                }
+                            },
+                            "f:status": {
+                                "f:artifact": {
+                                    ".": {},
+                                    "f:checksum": {},
+                                    "f:lastUpdateTime": {},
+                                    "f:path": {},
+                                    "f:revision": {},
+                                    "f:url": {}
+                                },
+                                "f:conditions": {},
+                                "f:observedGeneration": {},
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "source-controller",
+                        "operation": "Update",
+                        "time": "2022-02-18T14:49:25Z"
+                    }
+                ],
+                "name": "bitnami",
+                "namespace": "flux-system",
+                "resourceVersion": "74539166",
+                "uid": "74e620cf-dc4a-4f61-a35c-22ecd9722ad3"
+            },
+            "spec": {
+                "interval": "1m",
+                "timeout": "60s",
+                "url": "https://charts.bitnami.com/bitnami"
+            },
+            "status": {
+                "artifact": {
+                    "checksum": "0ae89a789dc8353602db6dc4a4890cbc2cd2e2a459514a92a87ed45ffdb55903",
+                    "lastUpdateTime": "2022-05-01T05:52:42Z",
+                    "path": "helmrepository/flux-system/bitnami/index-0ae89a789dc8353602db6dc4a4890cbc2cd2e2a459514a92a87ed45ffdb55903.yaml",
+                    "revision": "0ae89a789dc8353602db6dc4a4890cbc2cd2e2a459514a92a87ed45ffdb55903",
+                    "url": "http://source-controller.flux-system.svc.cluster.local./helmrepository/flux-system/bitnami/index-0ae89a789dc8353602db6dc4a4890cbc2cd2e2a459514a92a87ed45ffdb55903.yaml"
+                },
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2022-04-28T08:22:18Z",
+                        "message": "Fetched revision: 0ae89a789dc8353602db6dc4a4890cbc2cd2e2a459514a92a87ed45ffdb55903",
+                        "reason": "IndexationSucceed",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "observedGeneration": 1,
+                "url": "http://source-controller.flux-system.svc.cluster.local./helmrepository/flux-system/bitnami/index.yaml"
+            }
+        },
+        {
+            "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+            "kind": "HelmRepository",
+            "metadata": {
+                "creationTimestamp": "2022-02-18T14:44:34Z",
+                "finalizers": [
+                    "finalizers.fluxcd.io"
+                ],
+                "generation": 2,
+                "labels": {
+                    "kustomize.toolkit.fluxcd.io/name": "flux-system",
+                    "kustomize.toolkit.fluxcd.io/namespace": "flux-system"
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:labels": {
+                                    "f:kustomize.toolkit.fluxcd.io/name": {},
+                                    "f:kustomize.toolkit.fluxcd.io/namespace": {}
+                                }
+                            },
+                            "f:spec": {
+                                "f:interval": {},
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "kustomize-controller",
+                        "operation": "Apply",
+                        "time": "2022-03-11T12:39:08Z"
+                    },
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:finalizers": {
+                                    ".": {},
+                                    "v:\"finalizers.fluxcd.io\"": {}
+                                }
+                            },
+                            "f:status": {
+                                "f:artifact": {
+                                    ".": {},
+                                    "f:checksum": {},
+                                    "f:lastUpdateTime": {},
+                                    "f:path": {},
+                                    "f:revision": {},
+                                    "f:url": {}
+                                },
+                                "f:conditions": {},
+                                "f:observedGeneration": {},
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "source-controller",
+                        "operation": "Update",
+                        "time": "2022-02-18T14:49:06Z"
+                    }
+                ],
+                "name": "confluentinc",
+                "namespace": "flux-system",
+                "resourceVersion": "49271652",
+                "uid": "db1b5179-d15a-4abd-b0ee-9018c9a19233"
+            },
+            "spec": {
+                "interval": "1m",
+                "timeout": "60s",
+                "url": "https://confluentinc.github.io/cp-helm-charts/"
+            },
+            "status": {
+                "artifact": {
+                    "checksum": "c8c908e0c0f2fcfa40ff665f2e5a50fbdf50df12189a7701b4e157a9263525d0",
+                    "lastUpdateTime": "2022-02-18T14:49:06Z",
+                    "path": "helmrepository/flux-system/confluentinc/index-c8c908e0c0f2fcfa40ff665f2e5a50fbdf50df12189a7701b4e157a9263525d0.yaml",
+                    "revision": "c8c908e0c0f2fcfa40ff665f2e5a50fbdf50df12189a7701b4e157a9263525d0",
+                    "url": "http://source-controller.flux-system.svc.cluster.local./helmrepository/flux-system/confluentinc/index-c8c908e0c0f2fcfa40ff665f2e5a50fbdf50df12189a7701b4e157a9263525d0.yaml"
+                },
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2022-02-18T14:49:06Z",
+                        "message": "Fetched revision: c8c908e0c0f2fcfa40ff665f2e5a50fbdf50df12189a7701b4e157a9263525d0",
+                        "reason": "IndexationSucceed",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "observedGeneration": 2,
+                "url": "http://source-controller.flux-system.svc.cluster.local./helmrepository/flux-system/confluentinc/index.yaml"
+            }
+        },
+        {
+            "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+            "kind": "HelmRepository",
+            "metadata": {
+                "creationTimestamp": "2022-02-18T14:49:16Z",
+                "finalizers": [
+                    "finalizers.fluxcd.io"
+                ],
+                "generation": 1,
+                "labels": {
+                    "kustomize.toolkit.fluxcd.io/name": "flux-system",
+                    "kustomize.toolkit.fluxcd.io/namespace": "flux-system"
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:labels": {
+                                    "f:kustomize.toolkit.fluxcd.io/name": {},
+                                    "f:kustomize.toolkit.fluxcd.io/namespace": {}
+                                }
+                            },
+                            "f:spec": {
+                                "f:interval": {},
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "kustomize-controller",
+                        "operation": "Apply",
+                        "time": "2022-03-11T12:39:08Z"
+                    },
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:finalizers": {
+                                    ".": {},
+                                    "v:\"finalizers.fluxcd.io\"": {}
+                                }
+                            },
+                            "f:status": {
+                                "f:artifact": {
+                                    ".": {},
+                                    "f:checksum": {},
+                                    "f:lastUpdateTime": {},
+                                    "f:path": {},
+                                    "f:revision": {},
+                                    "f:url": {}
+                                },
+                                "f:conditions": {},
+                                "f:observedGeneration": {},
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "source-controller",
+                        "operation": "Update",
+                        "time": "2022-02-18T14:49:16Z"
+                    }
+                ],
+                "name": "datalust",
+                "namespace": "flux-system",
+                "resourceVersion": "68730028",
+                "uid": "ea77e101-2e79-4d54-a460-960a00507d2a"
+            },
+            "spec": {
+                "interval": "1m",
+                "timeout": "60s",
+                "url": "https://helm.datalust.co"
+            },
+            "status": {
+                "artifact": {
+                    "checksum": "349d63f2f6aa785dd58905cae4f14cd2cc9124452f3d9ab1700541929f1fc8f1",
+                    "lastUpdateTime": "2022-04-19T06:34:04Z",
+                    "path": "helmrepository/flux-system/datalust/index-349d63f2f6aa785dd58905cae4f14cd2cc9124452f3d9ab1700541929f1fc8f1.yaml",
+                    "revision": "349d63f2f6aa785dd58905cae4f14cd2cc9124452f3d9ab1700541929f1fc8f1",
+                    "url": "http://source-controller.flux-system.svc.cluster.local./helmrepository/flux-system/datalust/index-349d63f2f6aa785dd58905cae4f14cd2cc9124452f3d9ab1700541929f1fc8f1.yaml"
+                },
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2022-02-18T14:49:16Z",
+                        "message": "Fetched revision: 349d63f2f6aa785dd58905cae4f14cd2cc9124452f3d9ab1700541929f1fc8f1",
+                        "reason": "IndexationSucceed",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "observedGeneration": 1,
+                "url": "http://source-controller.flux-system.svc.cluster.local./helmrepository/flux-system/datalust/index.yaml"
+            }
+        },
+        {
+            "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+            "kind": "HelmRepository",
+            "metadata": {
+                "creationTimestamp": "2022-02-18T14:49:33Z",
+                "finalizers": [
+                    "finalizers.fluxcd.io"
+                ],
+                "generation": 1,
+                "labels": {
+                    "kustomize.toolkit.fluxcd.io/name": "flux-system",
+                    "kustomize.toolkit.fluxcd.io/namespace": "flux-system"
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:labels": {
+                                    "f:kustomize.toolkit.fluxcd.io/name": {},
+                                    "f:kustomize.toolkit.fluxcd.io/namespace": {}
+                                }
+                            },
+                            "f:spec": {
+                                "f:interval": {},
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "kustomize-controller",
+                        "operation": "Apply",
+                        "time": "2022-03-11T12:39:08Z"
+                    },
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:finalizers": {
+                                    ".": {},
+                                    "v:\"finalizers.fluxcd.io\"": {}
+                                }
+                            },
+                            "f:status": {
+                                "f:artifact": {
+                                    ".": {},
+                                    "f:checksum": {},
+                                    "f:lastUpdateTime": {},
+                                    "f:path": {},
+                                    "f:revision": {},
+                                    "f:url": {}
+                                },
+                                "f:conditions": {},
+                                "f:observedGeneration": {},
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "source-controller",
+                        "operation": "Update",
+                        "time": "2022-02-18T14:49:33Z"
+                    }
+                ],
+                "name": "emberstack",
+                "namespace": "flux-system",
+                "resourceVersion": "54352771",
+                "uid": "8fb6be67-609f-440e-b8d0-460e95c3a0b9"
+            },
+            "spec": {
+                "interval": "1m",
+                "timeout": "60s",
+                "url": "https://emberstack.github.io/helm-charts"
+            },
+            "status": {
+                "artifact": {
+                    "checksum": "a114c924b5578774a8bbbdc14fb6b1fdb5232b557504f29f110128093913120a",
+                    "lastUpdateTime": "2022-03-21T08:19:06Z",
+                    "path": "helmrepository/flux-system/emberstack/index-a114c924b5578774a8bbbdc14fb6b1fdb5232b557504f29f110128093913120a.yaml",
+                    "revision": "a114c924b5578774a8bbbdc14fb6b1fdb5232b557504f29f110128093913120a",
+                    "url": "http://source-controller.flux-system.svc.cluster.local./helmrepository/flux-system/emberstack/index-a114c924b5578774a8bbbdc14fb6b1fdb5232b557504f29f110128093913120a.yaml"
+                },
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2022-02-18T14:49:33Z",
+                        "message": "Fetched revision: a114c924b5578774a8bbbdc14fb6b1fdb5232b557504f29f110128093913120a",
+                        "reason": "IndexationSucceed",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "observedGeneration": 1,
+                "url": "http://source-controller.flux-system.svc.cluster.local./helmrepository/flux-system/emberstack/index.yaml"
+            }
+        },
+        {
+            "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+            "kind": "HelmRepository",
+            "metadata": {
+                "annotations": {
+                    "reconcile.fluxcd.io/requestedAt": "2022-03-23T12:51:58.276624Z"
+                },
+                "creationTimestamp": "2022-03-11T12:39:08Z",
+                "finalizers": [
+                    "finalizers.fluxcd.io"
+                ],
+                "generation": 2,
+                "labels": {
+                    "kustomize.toolkit.fluxcd.io/name": "flux-system",
+                    "kustomize.toolkit.fluxcd.io/namespace": "flux-system"
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:labels": {
+                                    "f:kustomize.toolkit.fluxcd.io/name": {},
+                                    "f:kustomize.toolkit.fluxcd.io/namespace": {}
+                                }
+                            },
+                            "f:spec": {
+                                "f:interval": {},
+                                "f:secretRef": {
+                                    "f:name": {}
+                                },
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "kustomize-controller",
+                        "operation": "Apply",
+                        "time": "2022-03-11T12:39:08Z"
+                    },
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:reconcile.fluxcd.io/requestedAt": {}
+                                }
+                            },
+                            "f:spec": {
+                                "f:timeout": {}
+                            }
+                        },
+                        "manager": "flux.exe",
+                        "operation": "Update",
+                        "time": "2022-03-15T14:56:38Z"
+                    },
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:finalizers": {
+                                    ".": {},
+                                    "v:\"finalizers.fluxcd.io\"": {}
+                                }
+                            },
+                            "f:status": {
+                                "f:artifact": {
+                                    ".": {},
+                                    "f:checksum": {},
+                                    "f:lastUpdateTime": {},
+                                    "f:path": {},
+                                    "f:revision": {},
+                                    "f:url": {}
+                                },
+                                "f:conditions": {},
+                                "f:lastHandledReconcileAt": {},
+                                "f:observedGeneration": {},
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "source-controller",
+                        "operation": "Update",
+                        "time": "2022-03-15T14:56:38Z"
+                    }
+                ],
+                "name": "grimaldi-charts",
+                "namespace": "flux-system",
+                "resourceVersion": "74721735",
+                "uid": "7d8366de-d55a-456c-9e31-e2d18a2b0227"
+            },
+            "spec": {
+                "interval": "1m0s",
+                "secretRef": {
+                    "name": "grimaldi-charts-credentials"
+                },
+                "timeout": "1m0s",
+                "url": "https://nexus.abxinternal.com/repository/grimaldi-charts"
+            },
+            "status": {
+                "artifact": {
+                    "checksum": "f50560e516c45198954e631e71e83c119d929770e898bba8d4cc6f54d6a38cec",
+                    "lastUpdateTime": "2022-05-01T14:49:59Z",
+                    "path": "helmrepository/flux-system/grimaldi-charts/index-f50560e516c45198954e631e71e83c119d929770e898bba8d4cc6f54d6a38cec.yaml",
+                    "revision": "f50560e516c45198954e631e71e83c119d929770e898bba8d4cc6f54d6a38cec",
+                    "url": "http://source-controller.flux-system.svc.cluster.local./helmrepository/flux-system/grimaldi-charts/index-f50560e516c45198954e631e71e83c119d929770e898bba8d4cc6f54d6a38cec.yaml"
+                },
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2022-03-24T16:39:35Z",
+                        "message": "Fetched revision: f50560e516c45198954e631e71e83c119d929770e898bba8d4cc6f54d6a38cec",
+                        "reason": "IndexationSucceed",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "lastHandledReconcileAt": "2022-03-23T12:51:58.276624Z",
+                "observedGeneration": 2,
+                "url": "http://source-controller.flux-system.svc.cluster.local./helmrepository/flux-system/grimaldi-charts/index.yaml"
+            }
+        },
+        {
+            "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+            "kind": "HelmRepository",
+            "metadata": {
+                "creationTimestamp": "2022-02-18T14:49:39Z",
+                "finalizers": [
+                    "finalizers.fluxcd.io"
+                ],
+                "generation": 1,
+                "labels": {
+                    "kustomize.toolkit.fluxcd.io/name": "flux-system",
+                    "kustomize.toolkit.fluxcd.io/namespace": "flux-system"
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:labels": {
+                                    "f:kustomize.toolkit.fluxcd.io/name": {},
+                                    "f:kustomize.toolkit.fluxcd.io/namespace": {}
+                                }
+                            },
+                            "f:spec": {
+                                "f:interval": {},
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "kustomize-controller",
+                        "operation": "Apply",
+                        "time": "2022-03-11T12:39:08Z"
+                    },
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:finalizers": {
+                                    ".": {},
+                                    "v:\"finalizers.fluxcd.io\"": {}
+                                }
+                            },
+                            "f:status": {
+                                "f:artifact": {
+                                    ".": {},
+                                    "f:checksum": {},
+                                    "f:lastUpdateTime": {},
+                                    "f:path": {},
+                                    "f:revision": {},
+                                    "f:url": {}
+                                },
+                                "f:conditions": {},
+                                "f:observedGeneration": {},
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "source-controller",
+                        "operation": "Update",
+                        "time": "2022-02-18T14:49:39Z"
+                    }
+                ],
+                "name": "jetstack",
+                "namespace": "flux-system",
+                "resourceVersion": "72772329",
+                "uid": "0cc0e05c-b66a-4aa7-a6c8-59ac0a103e74"
+            },
+            "spec": {
+                "interval": "1m",
+                "timeout": "60s",
+                "url": "https://charts.jetstack.io"
+            },
+            "status": {
+                "artifact": {
+                    "checksum": "8ad47b5db8844d00fc38b515c328a3a908d13f51e8d792be12323576f5987ef3",
+                    "lastUpdateTime": "2022-04-27T14:34:34Z",
+                    "path": "helmrepository/flux-system/jetstack/index-8ad47b5db8844d00fc38b515c328a3a908d13f51e8d792be12323576f5987ef3.yaml",
+                    "revision": "8ad47b5db8844d00fc38b515c328a3a908d13f51e8d792be12323576f5987ef3",
+                    "url": "http://source-controller.flux-system.svc.cluster.local./helmrepository/flux-system/jetstack/index-8ad47b5db8844d00fc38b515c328a3a908d13f51e8d792be12323576f5987ef3.yaml"
+                },
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2022-02-20T03:31:41Z",
+                        "message": "Fetched revision: 8ad47b5db8844d00fc38b515c328a3a908d13f51e8d792be12323576f5987ef3",
+                        "reason": "IndexationSucceed",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "observedGeneration": 1,
+                "url": "http://source-controller.flux-system.svc.cluster.local./helmrepository/flux-system/jetstack/index.yaml"
+            }
+        },
+        {
+            "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+            "kind": "HelmRepository",
+            "metadata": {
+                "creationTimestamp": "2022-03-11T12:39:08Z",
+                "finalizers": [
+                    "finalizers.fluxcd.io"
+                ],
+                "generation": 1,
+                "labels": {
+                    "kustomize.toolkit.fluxcd.io/name": "flux-system",
+                    "kustomize.toolkit.fluxcd.io/namespace": "flux-system"
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:labels": {
+                                    "f:kustomize.toolkit.fluxcd.io/name": {},
+                                    "f:kustomize.toolkit.fluxcd.io/namespace": {}
+                                }
+                            },
+                            "f:spec": {
+                                "f:interval": {},
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "kustomize-controller",
+                        "operation": "Apply",
+                        "time": "2022-03-11T12:39:08Z"
+                    },
+                    {
+                        "apiVersion": "source.toolkit.fluxcd.io/v1beta1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:finalizers": {
+                                    ".": {},
+                                    "v:\"finalizers.fluxcd.io\"": {}
+                                }
+                            },
+                            "f:status": {
+                                "f:artifact": {
+                                    ".": {},
+                                    "f:checksum": {},
+                                    "f:lastUpdateTime": {},
+                                    "f:path": {},
+                                    "f:revision": {},
+                                    "f:url": {}
+                                },
+                                "f:conditions": {},
+                                "f:observedGeneration": {},
+                                "f:url": {}
+                            }
+                        },
+                        "manager": "source-controller",
+                        "operation": "Update",
+                        "time": "2022-03-11T12:39:08Z"
+                    }
+                ],
+                "name": "stakater",
+                "namespace": "flux-system",
+                "resourceVersion": "72100521",
+                "uid": "418c172f-ad4a-4ea6-a420-c01813368fa9"
+            },
+            "spec": {
+                "interval": "1m",
+                "timeout": "60s",
+                "url": "https://stakater.github.io/stakater-charts"
+            },
+            "status": {
+                "artifact": {
+                    "checksum": "0096e963324e9a8c60067d8c23a586798a68ac83685c2b9e2875f4e88b4958d3",
+                    "lastUpdateTime": "2022-04-26T05:23:09Z",
+                    "path": "helmrepository/flux-system/stakater/index-0096e963324e9a8c60067d8c23a586798a68ac83685c2b9e2875f4e88b4958d3.yaml",
+                    "revision": "0096e963324e9a8c60067d8c23a586798a68ac83685c2b9e2875f4e88b4958d3",
+                    "url": "http://source-controller.flux-system.svc.cluster.local./helmrepository/flux-system/stakater/index-0096e963324e9a8c60067d8c23a586798a68ac83685c2b9e2875f4e88b4958d3.yaml"
+                },
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2022-03-11T12:39:08Z",
+                        "message": "Fetched revision: 0096e963324e9a8c60067d8c23a586798a68ac83685c2b9e2875f4e88b4958d3",
+                        "reason": "IndexationSucceed",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "observedGeneration": 1,
+                "url": "http://source-controller.flux-system.svc.cluster.local./helmrepository/flux-system/stakater/index.yaml"
+            }
+        }
+    ],
+    "kind": "HelmRepositoryList",
+    "metadata": {
+        "continue": "",
+        "resourceVersion": "74811976"
+    }
+}

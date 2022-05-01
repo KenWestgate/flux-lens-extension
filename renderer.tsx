@@ -6,20 +6,25 @@
 import { Renderer } from "@k8slens/extensions";
 import React from "react";
 
-import { HelmReleaseDetails, HelmReleaseDetailsProps } from "./src/components/helm-release/helm-release-details";
-import { HelmReleaseMenu, HelmReleaseMenuProps } from "./src/components/helm-release/helm-release-menu";
-import { HelmReleasePage } from "./src/components/helm-release/helm-release-page";
-import { HelmRelease } from "./src/api/helm-release/helm-release"
+import { KustomizationDetails, KustomizationDetailsProps } from "./src/components/kustomization/kustomization-details";
+import { KustomizationMenu, KustomizationMenuProps } from "./src/components/kustomization/kustomization-menu";
+import { KustomizationPage } from "./src/components/kustomization/kustomization-page";
+import { Kustomization } from "./src/api/kustomization/kustomization"
 
 import { GitRepositoryDetails, GitRepositoryDetailsProps } from "./src/components/git-repository/git-repository-details";
 import { GitRepositoryMenu, GitRepositoryMenuProps } from "./src/components/git-repository/git-repository-menu";
 import { GitRepositoryPage } from "./src/components/git-repository/git-repository-page";
 import { GitRepository } from "./src/api/git-repository/git-repository"
 
-import { KustomizationDetails, KustomizationDetailsProps } from "./src/components/kustomization/kustomization-details";
-import { KustomizationMenu, KustomizationMenuProps } from "./src/components/kustomization/kustomization-menu";
-import { KustomizationPage } from "./src/components/kustomization/kustomization-page";
-import { Kustomization } from "./src/api/kustomization/kustomization"
+import { HelmRepositoryDetails, HelmRepositoryDetailsProps } from "./src/components/helm-repository/helm-repository-details";
+import { HelmRepositoryMenu, HelmRepositoryMenuProps } from "./src/components/helm-repository/helm-repository-menu";
+import { HelmRepositoryPage } from "./src/components/helm-repository/helm-repository-page";
+import { HelmRepository } from "./src/api/helm-repository/helm-repository"
+
+import { HelmReleaseDetails, HelmReleaseDetailsProps } from "./src/components/helm-release/helm-release-details";
+import { HelmReleaseMenu, HelmReleaseMenuProps } from "./src/components/helm-release/helm-release-menu";
+import { HelmReleasePage } from "./src/components/helm-release/helm-release-page";
+import { HelmRelease } from "./src/api/helm-release/helm-release"
 
 export function FluxIcon(props: Renderer.Component.IconProps) {
   return <Renderer.Component.Icon {...props} material="security" tooltip="Flux" />
@@ -31,6 +36,10 @@ export function KustomizationIcon(props: Renderer.Component.IconProps) {
 
 export function GitRepositoryIcon(props: Renderer.Component.IconProps) {
   return <Renderer.Component.Icon {...props} material="security" tooltip="Git Repositories" />
+}
+
+export function HelmRepositoryIcon(props: Renderer.Component.IconProps) {
+  return <Renderer.Component.Icon {...props} material="security" tooltip="Helm Repositories" />
 }
 
 export function HelmReleaseIcon(props: Renderer.Component.IconProps) {
@@ -51,6 +60,13 @@ export default class FluxExtension extends Renderer.LensExtension {
       components: {
         Page: () => <GitRepositoryPage extension={this} />,
         MenuIcon: GitRepositoryIcon,
+      }
+    },
+    {
+      id: "helm-repositories",
+      components: {
+        Page: () => <HelmRepositoryPage extension={this} />,
+        MenuIcon: HelmRepositoryIcon,
       }
     },
     {
@@ -88,6 +104,15 @@ export default class FluxExtension extends Renderer.LensExtension {
       }
     },
     {
+      id: "helm-repositories-menu",
+      parentId: "flux-main-menu",
+      target: { pageId: "helm-repositories" },
+      title: "Helm Repositories",
+      components: {
+        Icon: HelmRepositoryIcon,
+      }
+    },
+    {
       id: "helm-releases-menu",
       parentId: "flux-main-menu",
       target: { pageId: "helm-releases" },
@@ -113,6 +138,13 @@ export default class FluxExtension extends Renderer.LensExtension {
     }
   },
   {
+    kind: HelmRepository.kind,
+    apiVersions: ["source.toolkit.fluxcd.io/v1beta1"],
+    components: {
+      Details: (props: HelmRepositoryDetailsProps) => <HelmRepositoryDetails {...props} />
+    }
+  },
+  {
     kind: HelmRelease.kind,
     apiVersions: ["helm.toolkit.fluxcd.io/v2beta1"],
     components: {
@@ -133,6 +165,13 @@ export default class FluxExtension extends Renderer.LensExtension {
       apiVersions: ["source.toolkit.fluxcd.io/v1beta1"],
       components: {
         MenuItem: (props: GitRepositoryMenuProps) => <GitRepositoryMenu {...props} />,
+      },
+    },
+    {
+      kind: HelmRepository.kind,
+      apiVersions: ["source.toolkit.fluxcd.io/v1beta1"],
+      components: {
+        MenuItem: (props: HelmRepositoryMenuProps) => <HelmRepositoryMenu {...props} />,
       },
     },
     {
