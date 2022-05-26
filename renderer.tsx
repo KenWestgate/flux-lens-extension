@@ -26,6 +26,11 @@ import { HelmReleaseMenu, HelmReleaseMenuProps } from "./src/components/helm-rel
 import { HelmReleasePage } from "./src/components/helm-release/helm-release-page";
 import { HelmRelease } from "./src/api/helm-release/helm-release"
 
+import { HelmChartDetails, HelmChartDetailsProps } from "./src/components/helm-chart/helm-chart-details";
+import { HelmChartMenu, HelmChartMenuProps } from "./src/components/helm-chart/helm-chart-menu";
+import { HelmChartPage } from "./src/components/helm-chart/helm-chart-page";
+import { HelmChart } from "./src/api/helm-chart/helm-chart"
+
 export function FluxIcon(props: Renderer.Component.IconProps) {
   return <Renderer.Component.Icon {...props} svg='<svg width="64" height="64" viewBox="0 0 64 64"
   xmlns="http://www.w3.org/2000/svg"
@@ -71,6 +76,11 @@ export function HelmReleaseIcon(props: Renderer.Component.IconProps) {
   return <Renderer.Component.Icon {...props} material="security" tooltip="Helm Releases" />
 }
 
+export function HelmChartIcon(props: Renderer.Component.IconProps) {
+  return <Renderer.Component.Icon {...props} material="security" tooltip="Helm Charts" />
+}
+
+
 export default class FluxExtension extends Renderer.LensExtension {
   clusterPages = [
     {
@@ -99,6 +109,13 @@ export default class FluxExtension extends Renderer.LensExtension {
       components: {
         Page: () => <HelmReleasePage extension={this} />,
         MenuIcon: HelmReleaseIcon,
+      }
+    },
+    {
+      id: "helm-charts",
+      components: {
+        Page: () => <HelmChartPage extension={this} />,
+        MenuIcon: HelmChartIcon,
       }
     }]
 
@@ -146,6 +163,15 @@ export default class FluxExtension extends Renderer.LensExtension {
         Icon: HelmReleaseIcon,
       }
     },
+    {
+      id: "helm-charts-menu",
+      parentId: "flux-main-menu",
+      target: { pageId: "helm-charts" },
+      title: "Helm Charts",
+      components: {
+        Icon: HelmChartIcon,
+      }
+    },
   ];
 
   kubeObjectDetailItems = [{
@@ -174,6 +200,13 @@ export default class FluxExtension extends Renderer.LensExtension {
     apiVersions: ["helm.toolkit.fluxcd.io/v2beta1"],
     components: {
       Details: (props: HelmReleaseDetailsProps) => <HelmReleaseDetails {...props} />
+    }
+  },
+  {
+    kind: HelmChart.kind,
+    apiVersions: ["source.toolkit.fluxcd.io/v1beta1"],
+    components: {
+      Details: (props: HelmChartDetailsProps) => <HelmChartDetails {...props} />
     }
   }];
 
@@ -204,6 +237,13 @@ export default class FluxExtension extends Renderer.LensExtension {
       apiVersions: ["helm.toolkit.fluxcd.io/v2beta1"],
       components: {
         MenuItem: (props: HelmReleaseMenuProps) => <HelmReleaseMenu {...props} />,
+      },
+    },
+    {
+      kind: HelmChart.kind,
+      apiVersions: HelmChart.apiVersions,
+      components: {
+        MenuItem: (props: HelmChartMenuProps) => <HelmChartMenu {...props} />,
       },
     }];
 }
