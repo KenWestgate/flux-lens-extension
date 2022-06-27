@@ -128,12 +128,12 @@ export default class FluxExtension extends Renderer.LensExtension {
       },
     },
     {
-      id: "flux-kustomizations-menu",
+      id: "helm-repositories-menu",
       parentId: "flux-main-menu",
-      target: { pageId: "kustomizations" },
-      title: "Kustomizations",
+      target: { pageId: "helm-repositories" },
+      title: "Helm Repositories",
       components: {
-        Icon: KustomizationIcon,
+        Icon: HelmRepositoryIcon,
       }
     },
     {
@@ -146,12 +146,12 @@ export default class FluxExtension extends Renderer.LensExtension {
       }
     },
     {
-      id: "helm-repositories-menu",
+      id: "flux-kustomizations-menu",
       parentId: "flux-main-menu",
-      target: { pageId: "helm-repositories" },
-      title: "Helm Repositories",
+      target: { pageId: "kustomizations" },
+      title: "Kustomizations",
       components: {
-        Icon: HelmRepositoryIcon,
+        Icon: KustomizationIcon,
       }
     },
     {
