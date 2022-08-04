@@ -56,10 +56,6 @@ export function KustomizationMenu(props: KustomizationMenuProps) {
 
   return (
     <>
-      <MenuItem onClick={reconcile}>
-        <Icon material="refresh" interactive={toolbar} tooltip={toolbar && "Reconcile"} />
-        <span className="title">Reconcile</span>
-      </MenuItem>
       {
         kustomization.isSuspended()
           ? (
@@ -69,10 +65,16 @@ export function KustomizationMenu(props: KustomizationMenuProps) {
             </MenuItem>
           )
           : (
-            <MenuItem onClick={suspend}>
-              <Icon material="pause_circle_filled" interactive={toolbar} tooltip={toolbar && "Suspend"} />
-              <span className="title">Suspend</span>
-            </MenuItem>
+            <>
+              <MenuItem onClick={reconcile}>
+                <Icon material="refresh" interactive={toolbar} tooltip={toolbar && "Reconcile"} />
+                <span className="title">Reconcile</span>
+              </MenuItem>
+              <MenuItem onClick={suspend}>
+                <Icon material="pause_circle_filled" interactive={toolbar} tooltip={toolbar && "Suspend"} />
+                <span className="title">Suspend</span>
+              </MenuItem>
+            </>
           )
       }
     </>
