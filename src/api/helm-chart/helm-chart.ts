@@ -2,9 +2,9 @@ import { Renderer} from "@k8slens/extensions";
 
 export class HelmChart extends Renderer.K8sApi.KubeObject {
   static kind = "HelmChart"
-  static apiVersions = ["source.toolkit.fluxcd.io/v1beta1"];
+  static apiVersions = ["source.toolkit.fluxcd.io/v1beta2"];
   static namespaced = true
-  static apiBase = "/apis/source.toolkit.fluxcd.io/v1beta1/helmcharts";
+  static apiBase = "/apis/source.toolkit.fluxcd.io/v1beta2/helmcharts";
 
   kind: string
   apiVersion: string

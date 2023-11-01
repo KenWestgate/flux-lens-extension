@@ -3,7 +3,7 @@ import { Renderer} from "@k8slens/extensions";
 export class GitRepository extends Renderer.K8sApi.KubeObject {
   static kind = "GitRepository"
   static namespaced = true
-  static apiBase = "/apis/source.toolkit.fluxcd.io/v1beta1/gitrepositories";
+  static apiBase = "/apis/source.toolkit.fluxcd.io/v1beta2/gitrepositories";
 
   kind: string
   apiVersion: string
